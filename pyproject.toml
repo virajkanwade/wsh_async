@@ -1,3 +1,40 @@
 [tool.isort]
 profile = "black"
 src_paths = ["wsh_async", "tests"]
+
+[build-system]
+requires = ["setuptools", "setuptools-scm[toml]"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wsh_async"
+description = "An interactive WebSocket shell"
+readme = "README"
+keywords = ["one", "two"]
+license = {text = "MIT License"}
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = [
+    "certifi==2022.6.15",
+    "click==8.1.3",
+    "wsproto==1.1.0",  # h11
+    "prompt_toolkit==3.0.29",  # wcwidth
+    "blinker==1.4",
+    # dev
+    "mypy==0.961",  # mypy-extensions, tomli, typing_extensions
+    "black==22.3.0",  # pathspec, platformdirs
+    "isort==5.10.1",
+]
+dynamic = ["version"]
+
+[project.scripts]
+wsh_async = "wsh_async.wsh_async:wsh_async_run"
+
+[tool.setuptools.packages.find]
+exclude = ["tests*"]

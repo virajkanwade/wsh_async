@@ -5,6 +5,7 @@ prompt_toolkit==3.0.29  # wcwidth
 blinker==1.4
 
 # dev
+setuptools==62.6.0
 mypy==0.961  # mypy-extensions, tomli, typing_extensions
 black==22.3.0  # pathspec, platformdirs
 isort==5.10.1
